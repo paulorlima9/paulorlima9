@@ -1,0 +1,31 @@
+name: Contributions
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Monochrome, as the HYZIS design system: ink on the canvas, no hue.
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/contributions-light.svg?color_snake=#000000&color_dots=#ececec,#c8c8c8,#8f8f8f,#555555,#222222
+            dist/contributions-dark.svg?color_snake=#ffffff&color_dots=#1c1c1c,#3a3a3a,#6b6b6b,#a3a3a3,#e6e6e6
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
