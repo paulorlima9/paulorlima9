@@ -23,9 +23,19 @@ Escrevo software há 22 anos. Hoje quase tudo que faço é em Go, sobre o [Arand
   <img alt="Go, Python, TypeScript, JavaScript, PHP, Dart, Yxy, Arandu, Kyse, HTMX, Laravel, React, Next.js, Vue, Tailwind CSS, Flutter, PyTorch, ONNX Runtime, TensorRT, Hugging Face, llama.cpp, YOLO, MCP, PostgreSQL, Redis, SQLite, MySQL, Docker, Nginx, Linux, Ubuntu, Cloudflare, GitHub Actions" src="assets/stack-light.svg" width="100%" />
 </picture>
 
-### Ferramentas abertas
+### Open source na HYZIS
 
-- [ufw-cloudflare](https://github.com/paulorlima9/ufw-cloudflare): mantém as faixas de IP da Cloudflare liberadas no UFW, com atualização diária por systemd.
-- [copyfail-fix](https://github.com/paulorlima9/copyfail-fix): mitigação e patch da CVE-2026-31431 (Copy Fail) em VPS Ubuntu e Debian.
+Tudo que eu abro sai pela [HYZIS](https://github.com/hyz-is), como módulos para aplicações Arandu.
+
+- [arandu-permission](https://github.com/hyz-is/arandu-permission): grupos e permissões; as policies em Go continuam sendo a autoridade.
+- [arandu-wallet](https://github.com/hyz-is/arandu-wallet): carteiras, ledger e transferências em int64, com idempotência.
+- [arandu-activitylog](https://github.com/hyz-is/arandu-activitylog): log de atividade por tenant, com quem fez o quê, antes e depois.
+- [arandu-swagger](https://github.com/hyz-is/arandu-swagger): OpenAPI 3.1 gerado das rotas reais, com Swagger UI.
+- [arandu-alpr](https://github.com/hyz-is/arandu-alpr): reconhecimento de placas com TensorRT INT8, RTSP e NVDEC.
+- [arandu-face](https://github.com/hyz-is/arandu-face): detecção, embedding, comparação 1:1 e estimativa de idade.
+- [arandu-onnx](https://github.com/hyz-is/arandu-onnx): ONNX Runtime com manifestos de modelo verificados.
+- [arandu-llama](https://github.com/hyz-is/arandu-llama): inferência com adaptadores LoRA sobre base quantizada.
+
+[Todos os módulos](https://github.com/orgs/hyz-is/repositories)
 
 [hyz.is](https://hyz.is) · [arandu.io](https://arandu.io) · [x.com/paulorlima09](https://x.com/paulorlima09)
