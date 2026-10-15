@@ -28,11 +28,4 @@ Escrevo software há 22 anos. Hoje quase tudo que faço é em Go, sobre o [Arand
 - [ufw-cloudflare](https://github.com/paulorlima9/ufw-cloudflare): mantém as faixas de IP da Cloudflare liberadas no UFW, com atualização diária por systemd.
 - [copyfail-fix](https://github.com/paulorlima9/copyfail-fix): mitigação e patch da CVE-2026-31431 (Copy Fail) em VPS Ubuntu e Debian.
 
-### Contribuições
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/paulorlima9/paulorlima9/output/contributions-dark.svg" />
-  <img alt="Gráfico de contribuições animado" src="https://raw.githubusercontent.com/paulorlima9/paulorlima9/output/contributions-light.svg" width="100%" />
-</picture>
-
 [hyz.is](https://hyz.is) · [arandu.io](https://arandu.io) · [x.com/paulorlima09](https://x.com/paulorlima09)
