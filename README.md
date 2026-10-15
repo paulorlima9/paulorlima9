@@ -20,7 +20,7 @@ Escrevo software há 22 anos. Hoje quase tudo que faço é em Go, sobre o [Arand
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg" />
-  <img alt="Go, Python, TypeScript, JavaScript, PHP, Dart, Yxy, Arandu, Kyse, HTMX, Laravel, React, Next.js, Vue, Tailwind CSS, Flutter, PyTorch, ONNX Runtime, TensorRT, Hugging Face, llama.cpp, YOLO, MCP, PostgreSQL, Redis, SQLite, MySQL, Docker, Nginx, Linux, Ubuntu, Cloudflare, GitHub Actions" src="assets/stack-light.svg" width="100%" />
+  <img alt="Go, Python, TypeScript, JavaScript, PHP, Dart, Yxy, Arandu, Kyse, HTMX, Laravel, React, Next.js, Vue, Tailwind CSS, Flutter, PyTorch, ONNX Runtime, TensorRT, Hugging Face, llama.cpp, YOLO, MCP, PostgreSQL, MySQL, MariaDB, Redis, Valkey, MongoDB, ClickHouse, ScyllaDB, Cassandra, Elasticsearch, TimescaleDB, CockroachDB, DuckDB, SQLite, Dokploy, Docker, Docker Swarm, Traefik, Nixpacks, Linux, Ubuntu, Debian, Cloudflare, Git, GitHub Actions" src="assets/stack-light.svg" width="100%" />
 </picture>
 
 ### Open source na HYZIS
@@ -38,4 +38,8 @@ Tudo que eu abro sai pela [HYZIS](https://github.com/hyz-is), como módulos para
 
 [Todos os módulos](https://github.com/orgs/hyz-is/repositories)
 
-[hyz.is](https://hyz.is) · [arandu.io](https://arandu.io) · [x.com/paulorlima09](https://x.com/paulorlima09)
+### Contato
+
+<a href="https://linkedin.com/in/paulorlima9"><img alt="LinkedIn: paulorlima9" src="https://img.shields.io/badge/LinkedIn-paulorlima9-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+
+[paulorlima@hyz.is](mailto:paulorlima@hyz.is) · [hyz.is](https://hyz.is) · [arandu.io](https://arandu.io) · [x.com/paulorlima09](https://x.com/paulorlima09)

@@ -131,9 +131,9 @@ var (
 )
 
 type mark struct {
-	vbW, vbH float64
-	paths    []string // d, fill-rule
-	rules    []string
+	vbX, vbY, vbW, vbH float64
+	paths              []string // d, fill-rule
+	rules              []string
 }
 
 func loadMark(file string) mark {
@@ -143,8 +143,7 @@ func loadMark(file string) mark {
 	}
 	m := mark{vbW: 24, vbH: 24}
 	if v := vbRe.FindSubmatch(b); v != nil {
-		var x, y float64
-		fmt.Sscanf(string(v[1]), "%f %f %f %f", &x, &y, &m.vbW, &m.vbH)
+		fmt.Sscanf(string(v[1]), "%f %f %f %f", &m.vbX, &m.vbY, &m.vbW, &m.vbH)
 	}
 	for _, p := range pathRe.FindAll(b, -1) {
 		d := dRe.FindSubmatch(p)
@@ -165,7 +164,7 @@ func loadMark(file string) mark {
 func (m mark) draw(x, y, h float64, fill string) (string, float64) {
 	s := h / m.vbH
 	var b strings.Builder
-	fmt.Fprintf(&b, `<g transform="translate(%s %s) scale(%s)" fill="%s">`, f2(x), f2(y), strconv(s), fill)
+	fmt.Fprintf(&b, `<g transform="translate(%s %s) scale(%s) translate(%s %s)" fill="%s">`, f2(x), f2(y), strconv(s), f2(-m.vbX), f2(-m.vbY), fill)
 	for i, d := range m.paths {
 		fmt.Fprintf(&b, `<path fill-rule="%s" clip-rule="%s" d="%s"/>`, m.rules[i], m.rules[i], d)
 	}
@@ -559,11 +558,11 @@ func main() {
 			{"card-alpr", "Visão computacional", "alpr.sh", "Leitura de placas em tempo real, de câmeras IP ou pela API, sobre o arandu-alpr.", "alpr.sh"},
 		}
 		groups = []group{
-			{"Linguagens", []chip{{"go", "Go"}, {"python", "Python"}, {"typescript", "TypeScript"}, {"javascript", "JavaScript"}, {"php", "PHP"}, {"dart", "Dart"}, {"", "Yxy"}}},
+			{"Linguagens", []chip{{"go", "Go"}, {"python", "Python"}, {"typescript", "TypeScript"}, {"javascript", "JavaScript"}, {"php", "PHP"}, {"dart", "Dart"}, {"yxy", "Yxy"}}},
 			{"Web e apps", []chip{{"arandu", "Arandu"}, {"", "Kyse"}, {"htmx", "HTMX"}, {"laravel", "Laravel"}, {"react", "React"}, {"nextdotjs", "Next.js"}, {"vuedotjs", "Vue"}, {"tailwindcss", "Tailwind CSS"}, {"flutter", "Flutter"}}},
 			{"IA e visão", []chip{{"pytorch", "PyTorch"}, {"onnx", "ONNX Runtime"}, {"nvidia", "TensorRT"}, {"huggingface", "Hugging Face"}, {"", "llama.cpp"}, {"", "YOLO"}, {"", "MCP"}}},
-			{"Dados", []chip{{"postgresql", "PostgreSQL"}, {"redis", "Redis"}, {"sqlite", "SQLite"}, {"mysql", "MySQL"}}},
-			{"Infra", []chip{{"docker", "Docker"}, {"nginx", "Nginx"}, {"linux", "Linux"}, {"ubuntu", "Ubuntu"}, {"cloudflare", "Cloudflare"}, {"githubactions", "GitHub Actions"}}},
+			{"Bancos de dados", []chip{{"postgresql", "PostgreSQL"}, {"mysql", "MySQL"}, {"mariadb", "MariaDB"}, {"redis", "Redis"}, {"", "Valkey"}, {"mongodb", "MongoDB"}, {"clickhouse", "ClickHouse"}, {"scylladb", "ScyllaDB"}, {"apachecassandra", "Cassandra"}, {"elasticsearch", "Elasticsearch"}, {"timescale", "TimescaleDB"}, {"cockroachlabs", "CockroachDB"}, {"duckdb", "DuckDB"}, {"sqlite", "SQLite"}}},
+			{"Infra", []chip{{"dokploy", "Dokploy"}, {"docker", "Docker"}, {"docker", "Docker Swarm"}, {"traefikproxy", "Traefik"}, {"", "Nixpacks"}, {"linux", "Linux"}, {"ubuntu", "Ubuntu"}, {"debian", "Debian"}, {"cloudflare", "Cloudflare"}, {"git", "Git"}, {"githubactions", "GitHub Actions"}}},
 		}
 	case "hyzis":
 		h = hero{
@@ -591,7 +590,8 @@ func main() {
 		groups = []group{
 			{"Plataforma", []chip{{"go", "Go"}, {"arandu", "Arandu"}, {"", "Kyse"}, {"htmx", "HTMX"}, {"typescript", "TypeScript"}, {"flutter", "Flutter"}}},
 			{"IA e visão", []chip{{"pytorch", "PyTorch"}, {"onnx", "ONNX Runtime"}, {"nvidia", "TensorRT"}, {"huggingface", "Hugging Face"}, {"", "llama.cpp"}, {"", "MCP"}}},
-			{"Dados e infra", []chip{{"postgresql", "PostgreSQL"}, {"redis", "Redis"}, {"sqlite", "SQLite"}, {"docker", "Docker"}, {"linux", "Linux"}, {"cloudflare", "Cloudflare"}, {"githubactions", "GitHub Actions"}}},
+			{"Bancos de dados", []chip{{"postgresql", "PostgreSQL"}, {"mysql", "MySQL"}, {"mariadb", "MariaDB"}, {"redis", "Redis"}, {"", "Valkey"}, {"mongodb", "MongoDB"}, {"clickhouse", "ClickHouse"}, {"scylladb", "ScyllaDB"}, {"apachecassandra", "Cassandra"}, {"elasticsearch", "Elasticsearch"}, {"timescale", "TimescaleDB"}, {"cockroachlabs", "CockroachDB"}, {"duckdb", "DuckDB"}, {"sqlite", "SQLite"}}},
+			{"Infra", []chip{{"dokploy", "Dokploy"}, {"docker", "Docker"}, {"docker", "Docker Swarm"}, {"traefikproxy", "Traefik"}, {"", "Nixpacks"}, {"linux", "Linux"}, {"ubuntu", "Ubuntu"}, {"debian", "Debian"}, {"cloudflare", "Cloudflare"}, {"git", "Git"}, {"githubactions", "GitHub Actions"}}},
 		}
 	default:
 		log.Fatalf("unknown profile %q", *profile)
